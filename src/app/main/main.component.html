@@ -1,0 +1,27 @@
+<div class="button-holder">
+  <button mat-raised-button color="primary" routerLink="/menu">
+    Add a Menu
+  </button>
+</div>
+<div class="table">
+  <table mat-table [dataSource]="menus" class="mat-elevation-z8">
+    <ng-container matColumnDef="foodName">
+      <th mat-header-cell *matHeaderCellDef>Food Name</th>
+      <td mat-cell *matCellDef="let menu">{{ menu.foodName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="foodPrice">
+      <th mat-header-cell *matHeaderCellDef>Food Price</th>
+      <td mat-cell *matCellDef="let menu">{{ menu.foodPrice }}</td>
+    </ng-container>
+    <ng-container matColumnDef="foodTime">
+      <th mat-header-cell *matHeaderCellDef>Food Estimate</th>
+      <td mat-cell *matCellDef="let menu">{{ menu.foodTime }} Min</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      [routerLink]="'/menu/' + row._id"
+    ></tr>
+  </table>
+</div>

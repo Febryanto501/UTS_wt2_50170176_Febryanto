@@ -1,0 +1,41 @@
+<div *ngIf="error">Hero with ID {{ this.id }} is not available</div>
+
+<form>
+  <h1>Menu Form</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Food Name</mat-label>
+    <input matInput placeholder="type the food name" name="foodName" id="foodName" [(ngModel)]="menu.foodName" />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline" color="black">
+    <mat-label>Food Price</mat-label>
+    <input matInput placeholder="type the food price" name="foodPrice" id="foodPrice" [(ngModel)]="menu.foodPrice" />
+    <span matPrefix>Rp.</span>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Food Estimate</mat-label>
+    <input matInput placeholder="type the real extimasi" name="foodTime" id="foodTime" [(ngModel)]="menu.foodTime" />
+    <span matSuffix>Minute</span>
+  </mat-form-field>
+  <br />
+
+  <button mat-raised-button (click)="openDialog()">Food Detail</button>
+  <br />
+
+  <div class="buttons">
+    <div *ngIf="update">
+      <button mat-raised-button color="warn" (click)="deleteMenu()">
+        delete
+      </button>
+      <button mat-raised-button color="primary" (click)="updateMenu()">
+        update
+      </button>
+    </div>
+    <div *ngIf="!update">
+      <button mat-raised-button (click)="postMenu()" color="primary">
+        Post
+      </button>
+    </div>
+  </div>
+</form>
