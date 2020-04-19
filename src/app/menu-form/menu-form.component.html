@@ -1,28 +1,44 @@
-<div *ngIf="error">Hero with ID {{ this.id }} is not available</div>
+<div  *ngIf="error">Hero with ID {{ this.id }} is not available</div>
 
 <form>
   <h1>Menu Form</h1>
   <mat-form-field appearance="outline">
     <mat-label>Food Name</mat-label>
-    <input matInput placeholder="type the food name" name="foodName" id="foodName" [(ngModel)]="menu.foodName" />
+    <input matInput type = "text" max = "255" placeholder="type the food name" name="foodName" id="foodName" [(ngModel)]="menu.foodName" required />
+    <mat-error >
+      Food Name has to be 5 characters mininum and cannot be empty
+    </mat-error>
   </mat-form-field>
   <br />
   <mat-form-field appearance="outline" color="black">
     <mat-label>Food Price</mat-label>
-    <input matInput placeholder="type the food price" name="foodPrice" id="foodPrice" [(ngModel)]="menu.foodPrice" />
+    <input matInput type="number" min="0" step="1000" placeholder="type the food price" name="foodPrice" id="foodPrice" [(ngModel)]="menu.foodPrice" required/>
     <span matPrefix>Rp.</span>
+    <mat-error >
+      Food Price cannot be empty
+    </mat-error>
   </mat-form-field>
   <br />
   <mat-form-field appearance="outline">
     <mat-label>Food Estimate</mat-label>
-    <input matInput placeholder="type the real extimasi" name="foodTime" id="foodTime" [(ngModel)]="menu.foodTime" />
+    <input matInput type="number" min="0" step="1" placeholder="type the real extimasi" name="foodTime" id="foodTime" [(ngModel)]="menu.foodTime" required/>
     <span matSuffix>Minute</span>
+    <mat-error >
+      Estimate Time cannot be empty
+    </mat-error>
   </mat-form-field>
   <br />
 
+  <mat-checkbox >{{
+    update
+      ? "I want to update this user"
+      : "I agree to the terms and conditions"
+  }}</mat-checkbox>
+  <br />
+  <br />
   <button mat-raised-button (click)="openDialog()">Food Detail</button>
   <br />
-
+  <br />
   <div class="buttons">
     <div *ngIf="update">
       <button mat-raised-button color="warn" (click)="deleteMenu()">
@@ -33,7 +49,7 @@
       </button>
     </div>
     <div *ngIf="!update">
-      <button mat-raised-button (click)="postMenu()" color="primary">
+      <button type = "submit" mat-raised-button (click)="postMenu()" color="primary" >
         Post
       </button>
     </div>

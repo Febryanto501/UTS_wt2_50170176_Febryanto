@@ -8,6 +8,7 @@ import { DialogComponent } from './dialog/dialog.component';
 
 
 
+
 @Component({
   selector: 'app-menu-form',
   templateUrl: './menu-form.component.html',
@@ -16,6 +17,7 @@ import { DialogComponent } from './dialog/dialog.component';
 
 
 export class MenuFormComponent implements OnInit {
+
   menu: Menu = {
     _id: '',
     foodName: '',
@@ -23,16 +25,20 @@ export class MenuFormComponent implements OnInit {
     foodTime: '',
     foodDetail: '',
   };
+
   id = null;
   error = false;
   update = true;
+
+
 
   constructor(
     private _snackBar: MatSnackBar,
     private ds: MenuService,
     private route: ActivatedRoute,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+
   ) { }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {

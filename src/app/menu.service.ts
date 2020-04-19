@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MenuService {
-  baseUrl = 'https://crudcrud.com/api/a988ea34c041449ab3f3524ea19d2062'; // berbeda untuk setiap mahasiswa
+  baseUrl = 'https://crudcrud.com/api/e8733c3b5f734f68a0618cb2e93b6e72'; // berbeda untuk setiap mahasiswa
 
   constructor(private http: HttpClient) {}
 
